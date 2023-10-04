@@ -7,7 +7,9 @@ function generateSocials(element,size) {
     const githubHREF = document.createElement('a');
     const linkedinHREF = document.createElement('a');
     const github = document.createElement('img');
+    github.classList.add('socialImg')
     const linkedin = document.createElement('img');
+    linkedin.classList.add('socialImg')
 
     githubHREF.href = "https://github.com/Shankk"
     githubHREF.target = "_blank"
