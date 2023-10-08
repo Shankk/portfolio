@@ -1,34 +1,37 @@
 import './styles.css'
 import { generateSocials } from './socials';
-import { updateWorkImages } from './myWork';
+import { createWorkImages } from './myWork';
+import { createSkillImages } from './skills';
 import coolcat from "./images/coolcat.jpg";
 
 window.onscroll = function() {pageTransitions()};
 
 var r = document.querySelector(':root');
-let icon = document.querySelector(".Icon")
 
-let header = document.querySelector(".header");
-let menu = document.querySelector(".menu")
-let bio = document.querySelector("#bioContainer");
-let work = document.querySelector("#myWork");
-let workTop = document.querySelector("#workTopHalf");
-let workBottom = document.querySelector("#workBottomHalf");
-let workProjectOne = document.querySelector("#projectOne")
-let workProjectTwo = document.querySelector("#projectTwo")
-let workProjectThree = document.querySelector("#projectThree")
-let workProjectFour = document.querySelector("#projectFour")
-let footer = document.querySelector(".footer");
+const header = document.querySelector(".header");
+const menu = document.querySelector(".menu");
+const about = document.querySelector("#bio");
+const aboutContainer = document.querySelector("#bioContainer");
+const work = document.querySelector("#myWork");
+const skills = document.querySelector("#skills");
+const contact = document.querySelector("#contact");
+
+const workProjectOne = document.querySelector("#projectOne");
+const workProjectTwo = document.querySelector("#projectTwo");
+const workProjectThree = document.querySelector("#projectThree");
+const workProjectFour = document.querySelector("#projectFour");
+const footer = document.querySelector(".footer");
 // Get the offset position of the navbar
-let sticky = header.offsetTop;
+const sticky = header.offsetTop;
 
 //Header Buttons
 const changeTheme = document.querySelector("#changeTheme");
+const aboutBtn = document.querySelector("#aboutButton");
 const workBtn = document.querySelector("#workButton");
 const skillsBtn = document.querySelector("#skillsButton");
 const contactBtn = document.querySelector("#contactButton");
 
-let bioImage = document.querySelector("#bioImg");
+const bioImage = document.querySelector("#bioImg");
 bioImage.src = coolcat;
 
 changeTheme.addEventListener("click", (e) =>{
@@ -48,16 +51,20 @@ changeTheme.addEventListener("click", (e) =>{
     
 });
 
+aboutBtn.addEventListener("click",  (e) => {
+    about.scrollIntoView();
+});
+
 workBtn.addEventListener("click",  (e) => {
     work.scrollIntoView();
 });
 
 skillsBtn.addEventListener("click",  (e) => {
-    //work.scrollIntoView();
+    skills.scrollIntoView();
 });
 
 contactBtn.addEventListener("click",  (e) => {
-    //work.scrollIntoView();
+    contact.scrollIntoView();
 });
 
 function pageTransitions() {
@@ -68,10 +75,10 @@ function pageTransitions() {
         header.classList.remove("sticky");
     }
     // Introduction
-    if(window.pageYOffset > (bio.offsetTop + bio.offsetHeight)) {
-        bio.classList.remove("moveUp")
-    } else if(window.pageYOffset < (bio.offsetTop + bio.offsetHeight)) {
-        bio.classList.add("moveUp")
+    if(window.pageYOffset > (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
+        aboutContainer.classList.remove("moveUp")
+    } else if(window.pageYOffset < (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
+        aboutContainer.classList.add("moveUp")
     }
     // Work
     if(window.pageYOffset > (work.offsetTop - 300)) {
@@ -87,6 +94,7 @@ function pageTransitions() {
     }
 }
 
-updateWorkImages()
+createWorkImages()
+createSkillImages()
 generateSocials(menu,32)
 generateSocials(footer,32)

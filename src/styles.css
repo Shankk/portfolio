@@ -31,6 +31,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    letter-spacing: 2px;
     box-sizing: border-box;
     font-family: 'Orbitron', sans-serif;
 }
@@ -163,9 +164,7 @@ body {
     color: var(--text-sec-color);
 }
 
-#skills {
-    background-color: var(--sec-bg-color);
-}
+
 
 #myWork {
     background-color: var(--sec-bg-color);
@@ -193,20 +192,19 @@ body {
     align-items: center;
 }
 
-.workContainer > * {
-    min-width: 100px;
-    max-width: 500px;
-}
-
 .workImg {
-    width: 500px;
-    height: 400px;
+    min-width: 100px;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
     border-radius: 32px;
     border: 24px double var(--main-bg-color);
     /* box-shadow: -4px 4px 12px 1px var(--third-bg-color); */
 }
 
 .workInfo {
+    min-width: 100px;
+    max-width: 600px;
     color: var(--text-sec-color);
     background-color: var(--main-bg-color);
     border-radius: 12px;
@@ -218,11 +216,63 @@ body {
     gap: 20px;
 }
 
+#skills {
+    background-color: var(--sec-bg-color);
+
+    display: flex;
+    justify-content: center;
+}
+
+.skillImages {
+    width: 150px;
+    height: auto;
+}
+
+.techContainer {
+    width: 1200px;
+    height: auto;
+    margin: 50px 0px;
+    gap: 40px;
+    color: var(--text-main-color);
+    font-size: 24px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#webTech , #gameTech {
+    width: 100%;
+    height: auto;
+    gap: 40px;
+
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 #contact {
     background-color: var(--sec-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#contactContainer {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+    gap: 40px;
+    color: var(--text-main-color);
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .footer {
@@ -243,7 +293,7 @@ body {
     gap: 20px;
     width: 100px;
     height: 40px;
-    background-color: var(--text-main-color);
+    background-color: #FFC53A;
     border-radius: 16px;
 }
 
