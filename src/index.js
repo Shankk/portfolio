@@ -1,6 +1,6 @@
 import './styles.css'
 import { generateSocials } from './socials';
-import { createWorkImages } from './myWork';
+import { createWorkImages , createWorkLinks } from './myWork';
 import { createSkillImages } from './skills';
 import coolcat from "./images/coolcat.jpg";
 
@@ -9,7 +9,7 @@ window.onscroll = function() {pageTransitions()};
 var r = document.querySelector(':root');
 
 const header = document.querySelector(".header");
-const menu = document.querySelector(".menu");
+const menu = document.querySelector("#menu");
 const about = document.querySelector("#bio");
 const aboutContainer = document.querySelector("#bioContainer");
 const work = document.querySelector("#myWork");
@@ -25,6 +25,7 @@ const footer = document.querySelector(".footer");
 const sticky = header.offsetTop;
 
 //Header Buttons
+const sideBar = document.querySelector("#sideBarButton");
 const changeTheme = document.querySelector("#changeTheme");
 const aboutBtn = document.querySelector("#aboutButton");
 const workBtn = document.querySelector("#workButton");
@@ -50,19 +51,24 @@ changeTheme.addEventListener("click", (e) =>{
     }
     
 });
+sideBar.addEventListener("click", (e) => {
+    if(menu.className != "toggle") {
+        menu.classList.add("toggle");
 
+    } else {
+        menu.classList.remove("toggle");
+
+    }
+})
 aboutBtn.addEventListener("click",  (e) => {
     about.scrollIntoView();
 });
-
 workBtn.addEventListener("click",  (e) => {
     work.scrollIntoView();
 });
-
 skillsBtn.addEventListener("click",  (e) => {
     skills.scrollIntoView();
 });
-
 contactBtn.addEventListener("click",  (e) => {
     contact.scrollIntoView();
 });
@@ -94,7 +100,8 @@ function pageTransitions() {
     }
 }
 
-createWorkImages()
-createSkillImages()
-generateSocials(menu,32)
-generateSocials(footer,32)
+createWorkImages();
+createWorkLinks();
+createSkillImages();
+generateSocials(menu,32);
+generateSocials(footer,32);

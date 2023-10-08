@@ -32,6 +32,7 @@
     margin: 0px;
     padding: 0px;
     letter-spacing: 2px;
+    font-weight: bold;
     box-sizing: border-box;
     font-family: 'Orbitron', sans-serif;
 }
@@ -82,8 +83,13 @@ body {
     min-width: 450px;
 }
 
-.menu  {
+#sideBarButton {
+    visibility: hidden;
+}
+
+#menu  {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-evenly;
     width: 800px;
     gap: 20px;
@@ -122,9 +128,9 @@ body {
 }
 
 #bioTitle {
-    font-size: 36px;
+    font-size: 32px;
     min-width: 100px;
-    max-width: 600px;
+    max-width: 1000px;
     width: 100%;
     height: auto;
     z-index: 1;
@@ -148,10 +154,10 @@ body {
     align-self: flex-end;
     background-color: var(--main-bg-color);
     min-width: 100px;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     height: auto;
-    padding: 40px;
+    padding: 30px;
     gap: 20px;
     border-left: 12px solid var(--third-bg-color);
     border-radius: 32px;
@@ -160,7 +166,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
 
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-sec-color);
 }
 
@@ -199,7 +205,6 @@ body {
     height: auto;
     border-radius: 32px;
     border: 24px double var(--main-bg-color);
-    /* box-shadow: -4px 4px 12px 1px var(--third-bg-color); */
 }
 
 .workInfo {
@@ -209,7 +214,6 @@ body {
     background-color: var(--main-bg-color);
     border-radius: 12px;
     border-left: 12px solid var(--third-bg-color);
-    /* box-shadow: 4px -4px 12px 1px var(--third-bg-color); */
     display: flex;
     flex-flow: column nowrap;
     padding: 20px;
@@ -235,6 +239,8 @@ body {
     gap: 40px;
     color: var(--text-main-color);
     font-size: 24px;
+    text-align: center;
+
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -280,13 +286,15 @@ body {
     color: var(--sec-bg-color);
     background-color: var(--main-bg-color);
     gap: 20px;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-.socials {
+.socials , .links{
     display: flex;
     justify-content: center;
     align-items: end;
@@ -297,11 +305,11 @@ body {
     border-radius: 16px;
 }
 
-.socialImg , .workImg {
+.socialImg , .linkImg {
     transition: 0.25s ease-out;
 }
 
-.socialImg:hover {
+.socialImg:hover , .linkImg:hover{
     transform: scale(1.2);
 }
 
@@ -406,5 +414,97 @@ a {
   
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #changeThemeContainer {
+        width: 60px;
+        height: 30px;
+        padding: 0px 2px;
+        border-radius: 32px;
+    }
+    
+    #changeTheme {
+        width: 20px;
+        height: 20px;
+
+    }
+    #changeTheme.toggle {
+        transform: translateX(30px);
+    }
+    .icon {
+        font-size: 16px;
+        min-width: 15px;
+        min-height: 20px;
+        width: 15px;
+        height: 20px;
+    }
+    
+    .icon:hover {
+        font-size: 18px;
+        font-weight: bolder;
+        width: 200px;
+        min-width: 200px;
+    }
+
+    #sideBarButton {
+        visibility: visible;
+        z-index: 2;
+    }
+
+    #menu {
+        position: fixed;
+        width: 40%;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        transform: translateX(200px);
+        padding: 20px;
+        gap: 50px;
+        background-color: var(--main-bg-color);
+        border-left: 12px solid var(--third-bg-color);
+        flex-flow: column nowrap;
+        justify-content: center;
+        z-index: 1;
+        transition: 1s ease-in-out;
+    }
+
+    #menu.toggle {
+        transform: translateX(0px);
+    }
+
+    #bioContainer {
+        margin: 0px 20px;
+    }
+    #bioTitle {
+        font-size: 20px;
+    }
+    .workImg {
+        border: 12px double var(--main-bg-color);
+        border-radius: 12px;
+    }
+    .workInfo {
+        font-size: 12px;
+    }
+    .skillImages {
+        width: 100px;
+    }
+    #contactContainer {
+        margin: 0px 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    button {
+        font-size: 14px;
+    }
+    button:hover {
+        font-size: 20px;
+    }
+
+    .footer {
+        gap: 0px;
+        font-size: 12px;
     }
 }
