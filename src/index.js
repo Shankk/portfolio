@@ -54,9 +54,11 @@ changeTheme.addEventListener("click", (e) =>{
 sideBar.addEventListener("click", (e) => {
     if(menu.className != "toggle") {
         menu.classList.add("toggle");
+        sideBar.classList.add("toggle")
 
     } else {
         menu.classList.remove("toggle");
+        sideBar.classList.remove("toggle")
 
     }
 })
@@ -75,24 +77,24 @@ contactBtn.addEventListener("click",  (e) => {
 
 function pageTransitions() {
     //Header Sticky
-    if (window.pageYOffset > sticky) {
+    if (window.scrollY > sticky) {
         header.classList.add("sticky");
-    } else if (window.pageYOffset <= sticky) {
+    } else if (window.scrollY <= sticky) {
         header.classList.remove("sticky");
     }
     // Introduction
-    if(window.pageYOffset > (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
-        aboutContainer.classList.remove("moveUp")
-    } else if(window.pageYOffset < (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
-        aboutContainer.classList.add("moveUp")
+    if(window.scrollY > (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
+        aboutContainer.classList.remove("moveDown")
+    } else if(window.scrollY < (aboutContainer.offsetTop + aboutContainer.offsetHeight)) {
+        aboutContainer.classList.add("moveDown")
     }
     // Work
-    if(window.pageYOffset > (work.offsetTop - 300)) {
+    if(window.scrollY > (work.offsetTop - 300)) {
         workProjectOne.classList.add("moveLeft")
         workProjectTwo.classList.add("moveRight")
         workProjectThree.classList.add("moveLeft")
         workProjectFour.classList.add("moveRight")
-    } else if (window.pageYOffset < (work.offsetTop - (work.offsetTop-100))) {
+    } else if (window.scrollY < (work.offsetTop - (work.offsetTop-100))) {
         workProjectOne.classList.remove("moveLeft")
         workProjectTwo.classList.remove("moveRight")
         workProjectThree.classList.remove("moveLeft")
